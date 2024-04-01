@@ -1,21 +1,33 @@
 import * as React from 'react';
-import TopBar from './TopBar.jsx'
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { useNavigate } from 'react-router-dom';
+import PIPProjects from './PIPProjects';
+import Modal from '@mui/material/Modal';
 
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '90%', 
+  maxHeight: '90%',
+  overflowY: 'auto',
+  bgcolor: 'background.paper',
+  p: 4,
+};
 
 function Projects() {
-  const navigate = useNavigate();
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const handleButtonClick2 = () => {
-    navigate('/PIPprojects');
+    handleOpen();
   };
 
     return (
-        <Box sx={{ marginTop: '64px', padding: '16px' }}>
-          <TopBar/>
-          <Box sx={{ marginTop: '16px' }}>
+        <Box sx={{ padding: '16px' }}>
+          <Box>
             <Typography variant="h5" gutterBottom>
               My Projects!
             </Typography>
@@ -49,6 +61,16 @@ function Projects() {
               designed an interface in Figma. 
             </Typography>
             <Button onClick={handleButtonClick2} variant="outlined" size="small" color="secondary">View Case Here.</Button>
+            <Modal
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="modal-modal-title"
+              aria-describedby="modal-modal-description"
+            >
+              <Box sx={style}>
+                <PIPProjects/>
+              </Box>
+            </Modal>
           </Box>
         </Box>
     );

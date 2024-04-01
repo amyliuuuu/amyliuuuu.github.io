@@ -1,7 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import PageList from './PageList';
 import { motion } from 'framer-motion';
+import Dashboard from './Dashboard';
 
 const App = () => {
   const [mousePosition, setMousePosition] = React.useState({
@@ -32,9 +31,7 @@ const App = () => {
 
   return (
     <>
-      <Router>
-        <PageList />
-      </Router>
+      <Dashboard/>
       <motion.div
         style={{
           width: '32px',

@@ -1,9 +1,6 @@
 import * as React from 'react';
-import TopBar from './TopBar.jsx'
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import { useNavigate } from 'react-router-dom';
 import survey from './surveyBreakdown.pdf'
 import analysis from './competitor.pdf';
 import domestic from './domestic.jpg';
@@ -12,14 +9,9 @@ import flow1 from './flow1.mov';
 import flow2 from './flow2.mov'
 
 function PIPProjects() {
-  const navigate = useNavigate();
-  const handleButtonClick = () => {
-    navigate('/projects');
-  };
     return (
-        <Box sx={{ marginTop: '64px', padding: '16px' }}>
-          <TopBar/>
-          <Box sx={{ marginTop: '16px' }}>
+        <Box sx={{ padding: '16px' }}>
+          <Box>
             <Typography variant="h5" gutterBottom>
               Prodigi (Product Innovation Program) Case Study Key Points
             </Typography>
@@ -165,8 +157,6 @@ function PIPProjects() {
               <video src={flow1} width="300" height="300" controls="controls" autoplay="true" />
               <video src={flow2} width="300" height="300" controls="controls" autoplay="true" />
             <hr/>
-            <Button onClick={handleButtonClick} variant="outlined" size="small" color="secondary">View my other projects here.</Button>
-
           </Box>
         </Box>
     );

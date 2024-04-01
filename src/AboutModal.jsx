@@ -1,5 +1,4 @@
 import * as React from 'react';
-import TopBar from './TopBar.jsx'
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import ImageList from '@mui/material/ImageList';
@@ -26,11 +25,10 @@ import friend3 from './friends/friend3.jpeg';
 import friend4 from './friends/friend4.jpg';
 import friend5 from './friends/friend5.jpeg';
 
-export default function About() {
+export default function AboutModal() {
     return (
-        <Box sx={{ marginTop: '64px', padding: '16px' }}>
-          <TopBar/>
-          <Box sx={{ marginTop: '16px' }}>
+        <Box sx={{ padding: '10px' }}>
+          <Box>
             <Typography variant="h5" gutterBottom>
               About me! 😃
             </Typography>

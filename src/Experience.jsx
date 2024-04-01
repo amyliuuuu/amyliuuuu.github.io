@@ -1,14 +1,12 @@
 import * as React from 'react';
-import TopBar from './TopBar.jsx'
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import BasicTabs from './SocietyYearsTab.jsx';
 
 function Experience() {
     return (
-        <Box sx={{ marginTop: '64px', padding: '16px' }}>
-          <TopBar/>
-          <Box sx={{ marginTop: '16px' }}>
+        <Box sx={{ padding: '16px' }}>
+          <Box>
             <Typography variant="h5" gutterBottom>
               My experiences! 🌏
             </Typography>

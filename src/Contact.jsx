@@ -1,19 +1,17 @@
 import * as React from 'react';
-import TopBar from './TopBar.jsx'
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom'
-import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import EmailIcon from '@mui/icons-material/Email';
+import FacebookIcon from '@mui/icons-material/Facebook.js';
+import InstagramIcon from '@mui/icons-material/Instagram.js';
+import LinkedInIcon from '@mui/icons-material/LinkedIn.js';
+import EmailIcon from '@mui/icons-material/Email.js';
 
 
 export default function Contact() {
     return (
-        <Box sx={{ marginTop: '64px', padding: '16px' }}>
-          <TopBar/>
-          <Box sx={{ marginTop: '16px' }}>
+        <Box sx={{ padding: '16px' }}>
+          <Box>
             <Typography variant="h5" gutterBottom>
               Get in contact!
             </Typography>

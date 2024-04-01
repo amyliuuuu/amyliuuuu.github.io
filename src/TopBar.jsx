@@ -1,22 +1,56 @@
 import * as React from 'react';
-import { useNavigate } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import Modal from '@mui/material/Modal';
+import AboutModal from './AboutModal';
+import Contact from './Contact';
+import Experience from './Experience';
+import Projects from './Projects';
 
-const navItems = ['About', 'Experience', 'Projects', 'Contact'];
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '90%', 
+  maxHeight: '90%',
+  overflowY: 'auto',
+  bgcolor: 'background.paper',
+  p: 4,
+};
 
 function TopBar(props) {
-  const navigate = useNavigate();
+  const [open, setOpen] = React.useState(false);
+  const [open2, setOpen2] = React.useState(false);
+  const [open3, setOpen3] = React.useState(false);
+  const [open4, setOpen4] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const handleOpen2 = () => setOpen2(true);
+  const handleClose2 = () => setOpen2(false);
+  const handleOpen3 = () => setOpen3(true);
+  const handleClose3 = () => setOpen3(false);
+  const handleOpen4 = () => setOpen4(true);
+  const handleClose4 = () => setOpen4(false);
 
-  const handleItemClick = (item) => {
-    navigate(`/${item}`)
+  const handleAbout = () => {
+    handleOpen();
   };
-  const handleNameClick = () => {
-    navigate('/')
+
+  const handleContact = () => {
+    handleOpen2();
+  };
+
+  const handleExperience = () => {
+    handleOpen3();
+  };
+
+  const handleProjects = () => {
+    handleOpen4();
   };
 
   return (
@@ -28,17 +62,63 @@ function TopBar(props) {
             variant="h6"
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-            onClick={handleNameClick}
           >
             Amy Liu ✨
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#fff' }} onClick={() => handleItemClick(item)}>
-                {item}
+              <Button sx={{ color: '#fff' }} onClick={() => handleAbout()}>
+                About
               </Button>
-            ))}
+              <Button sx={{ color: '#fff' }} onClick={() => handleExperience()}>
+                Exprience
+              </Button>
+              <Button sx={{ color: '#fff' }} onClick={() => handleProjects()}>
+                Projects
+              </Button>
+              <Button sx={{ color: '#fff' }} onClick={() => handleContact()}>
+                Contact
+              </Button>
           </Box>
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={style}>
+              <AboutModal/>
+            </Box>
+          </Modal>
+          <Modal
+            open={open2}
+            onClose={handleClose2}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={style}>
+              <Contact/>
+            </Box>
+          </Modal>
+          <Modal
+            open={open3}
+            onClose={handleClose3}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={style}>
+              <Experience/>
+            </Box>
+          </Modal>
+          <Modal
+            open={open4}
+            onClose={handleClose4}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={style}>
+              <Projects/>
+            </Box>
+          </Modal>
         </Toolbar>
       </AppBar>
     </Box>

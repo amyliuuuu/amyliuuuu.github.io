@@ -2,7 +2,6 @@ import * as React from 'react';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import Typography from '@mui/material/Typography';
-import TopBar from './TopBar.jsx'
 import Box from '@mui/material/Box';
 
 // illustrator
@@ -36,18 +35,11 @@ import book2 from './creativeImg/book2.png';
 import book3 from './creativeImg/book3.png';
 import book4 from './creativeImg/book4.png';
 import book5 from './creativeImg/book5.png';
-import Button from '@mui/material/Button';
-import { useNavigate } from 'react-router-dom';
 
 export default function CreativeProjs() {
-  const navigate = useNavigate();
-  const handleButtonClick = () => {
-    navigate('/experience');
-  };
   return (
     <>
-    <Box sx={{ marginTop: '64px', padding: '16px' }}>
-        <TopBar/>
+    <Box sx={{ padding: '16px' }}>
         <Typography variant="h6" gutterBottom>
             Facebook event banners using Adobe Illustrator
         </Typography>
@@ -112,7 +104,6 @@ export default function CreativeProjs() {
             </ImageListItem>
             ))}
         </ImageList>
-        <Button onClick={handleButtonClick} variant="outlined" size="small" color="secondary">Back to my experiences.</Button>
     </Box>
     </>
   );

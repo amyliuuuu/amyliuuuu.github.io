@@ -9,7 +9,21 @@ import DirImgs from './images/dirImgs';
 import SubImgs from './images/subImgs';
 import YsImgs from './images2/ysImgs';
 import Button from '@mui/material/Button';
-import { useNavigate } from 'react-router-dom';
+import Modal from '@mui/material/Modal';
+import PIPProjects from './PIPProjects';
+import CreativeProjs from './CreativeProjs';
+
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '90%', 
+    maxHeight: '90%',
+    overflowY: 'auto',
+    bgcolor: 'background.paper',
+    p: 4,
+  };
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -45,7 +59,13 @@ function a11yProps(index) {
 }
 
 export default function BasicTabs() {
-  const navigate = useNavigate();
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  const [open2, setOpen2] = React.useState(false);
+  const handleOpen2 = () => setOpen2(true);
+  const handleClose2 = () => setOpen2(false);
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -53,11 +73,11 @@ export default function BasicTabs() {
   };
 
   const handleButtonClick = () => {
-    navigate('/creativeProjs');
+    handleOpen2();
   };
 
   const handleButtonClick2 = () => {
-    navigate('/PIPprojects');
+    handleOpen();
   };
 
   return (
@@ -98,6 +118,16 @@ export default function BasicTabs() {
                 tattoos, iron on patches as well as our annual hoodies with over 300+ sales. 
             </Typography>
             <Button onClick={handleButtonClick} variant="outlined" size="small" color="secondary">See all my creative work here.</Button>
+            <Modal
+              open={open2}
+              onClose={handleClose2}
+              aria-labelledby="modal-modal-title"
+              aria-describedby="modal-modal-description"
+            >
+              <Box sx={style}>
+                <CreativeProjs/>
+              </Box>
+            </Modal>
             <DirImgs/>
             <Typography variant="h7" gutterBottom>
                 Creative Subcommittee Member (2022)
@@ -130,6 +160,16 @@ export default function BasicTabs() {
             designed an interface in Figma. 
         </Typography>
         <Button onClick={handleButtonClick2} variant="outlined" size="small" color="secondary">See key points from our PIP research here.</Button>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <PIPProjects/>
+          </Box>
+        </Modal>
       </CustomTabPanel>
     </Box>
   );
