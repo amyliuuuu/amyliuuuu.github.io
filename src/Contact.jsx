@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import { Link } from 'react-router-dom'
 import FacebookIcon from '@mui/icons-material/Facebook.js';
 import InstagramIcon from '@mui/icons-material/Instagram.js';
 import LinkedInIcon from '@mui/icons-material/LinkedIn.js';
@@ -20,15 +19,15 @@ export default function Contact() {
             </Typography>
             <Box sx={{ display: 'flex', marginBottom: '10px' }}>
                 <FacebookIcon/>
-                <Link to="https://www.facebook.com/profile.php?id=100014513357728">Facebook</Link>
+                <a href="https://www.facebook.com/profile.php?id=100014513357728">Facebook</a>
             </Box>
             <Box sx={{ display: 'flex', marginBottom: '10px' }}>
                 <InstagramIcon/>
-                <Link to="https://www.instagram.com/amy.liuuu/">Instagram</Link>
+                <a href="https://www.instagram.com/amy.liuuu/">Instagram</a>
             </Box>
             <Box sx={{ display: 'flex', marginBottom: '10px' }}>
                 <LinkedInIcon/>
-                <Link to="https://www.linkedin.com/in/amyliu8/">LinkedIn</Link>
+                <a href="https://www.linkedin.com/in/amyliu8/">LinkedIn</a>
             </Box>
             <Box sx={{ display: 'flex', marginBottom: '10px' }}>
                 <EmailIcon/>
