@@ -70,7 +70,7 @@ function TopBar(props) {
                 About
               </Button>
               <Button sx={{ color: '#fff' }} onClick={() => handleExperience()}>
-                Exprience
+                Experience
               </Button>
               <Button sx={{ color: '#fff' }} onClick={() => handleProjects()}>
                 Projects
